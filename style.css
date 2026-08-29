@@ -1,129 +1,466 @@
-html,
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Helvetica Neue", Arial, sans-serif;
 
-    width: 100%;
-    height: 100%;
+    color: #4a3932;
 
-    background: transparent;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255, 211, 172, 0.35) 0 90px, transparent 91px),
+        radial-gradient(circle at 90% 10%, rgba(255, 225, 195, 0.45) 0 120px, transparent 121px),
+        #fff9f4;
 
-    overflow: hidden;
-}
-
-
-#pet-container {
-    position: relative;
-
-    width: 220px;
-    height: 220px;
-}
-
-
-#toffee {
-    position: absolute;
-
-    width: 180px;
-
-    left: 15px;
-    top: 15px;
-
-    user-select: none;
-    -webkit-user-drag: none;
-
-    cursor: grab;
-    -webkit-app-region: no-drag;
-
-    transition: none;
-
-    transform-origin: center center;
-
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    will-change: transform;
-}
-#toffee:active {
-    cursor: grabbing;
-}
-
-
-#speech {
-    position: absolute;
-
-    top: 0;
-    left: 105px;
-
-    background: white;
-
-    padding: 7px 10px;
-
-    border-radius: 15px;
-
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-
-    color: #333;
-
-    display: none;
-
-    white-space: nowrap;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-
-    z-index: 200;
+    overflow-x: hidden;
 }
 
 
 /* =========================
-   TOFFEE INTERACTION MENU
+   PAW PRINT DECORATIONS
    ========================= */
 
-#menu {
+body::before {
+    content: "🐾";
+    position: fixed;
+
+    left: 4%;
+    top: 25%;
+
+    font-size: 42px;
+
+    opacity: 0.12;
+
+    transform: rotate(-20deg);
+
+    pointer-events: none;
+}
+
+body::after {
+    content: "🐾";
+    position: fixed;
+
+    right: 5%;
+    bottom: 20%;
+
+    font-size: 48px;
+
+    opacity: 0.12;
+
+    transform: rotate(18deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 78vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 25px 70px;
+
+    position: relative;
+}
+
+
+/* little decorative circles */
+
+.hero::before,
+.hero::after {
+    content: "";
+
     position: absolute;
 
-    top: 180px;
-    left: 20px;
+    border-radius: 50%;
 
-    display: none;
+    pointer-events: none;
+}
 
-    flex-direction: column;
+.hero::before {
+    width: 180px;
+    height: 180px;
+
+    left: -70px;
+    top: 110px;
+
+    background: #ffe5ce;
+
+    opacity: 0.45;
+}
+
+.hero::after {
+    width: 130px;
+    height: 130px;
+
+    right: -40px;
+    bottom: 80px;
+
+    background: #f9d7bd;
+
+    opacity: 0.35;
+}
+
+
+/* =========================
+   TOFFEE ICON
+   ========================= */
+
+.dog {
+    font-size: 90px;
+
+    margin-bottom: 15px;
+
+    animation: float 3s ease-in-out infinite;
+
+    filter: drop-shadow(0 10px 8px rgba(80, 50, 35, 0.12));
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   SMALL TITLE
+   ========================= */
+
+.eyebrow {
+
+    margin: 0 0 12px;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    font-weight: 800;
+
+    color: #a87558;
+}
+
+
+/* =========================
+   MAIN TITLE
+   ========================= */
+
+h1 {
+
+    margin: 0;
+
+    font-size: clamp(72px, 12vw, 130px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    color: #49372f;
+
+    text-shadow:
+        0 4px 0 #f5dfcf,
+        0 10px 25px rgba(80, 50, 35, 0.08);
+}
+
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.subtitle {
+
+    max-width: 610px;
+
+    margin: 30px auto 25px;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+
+    color: #715f56;
+}
+
+
+/* =========================
+   DOWNLOAD BUTTON
+   ========================= */
+
+.buttons {
+
+    margin-top: 12px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.download {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
 
     gap: 8px;
 
-    padding: 12px;
+    padding: 16px 27px;
 
-    background: white;
+    border-radius: 999px;
 
-    border-radius: 18px;
+    background: #4b3931;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: white;
 
-    z-index: 300;
-}
-
-
-#menu button {
-
-    border: none;
-
-    background: white;
-
-    padding: 10px 18px;
-
-    border-radius: 12px;
+    text-decoration: none;
 
     font-size: 16px;
 
-    cursor: pointer;
+    font-weight: 750;
 
-    text-align: left;
+    box-shadow:
+        0 8px 0 #d8bbaa,
+        0 14px 25px rgba(70, 45, 35, 0.16);
 
-    white-space: nowrap;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.download:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 11px 0 #d8bbaa,
+        0 18px 30px rgba(70, 45, 35, 0.20);
+}
+
+.download:active {
+
+    transform: translateY(3px);
+
+    box-shadow:
+        0 4px 0 #d8bbaa,
+        0 8px 15px rgba(70, 45, 35, 0.15);
 }
 
 
-#menu button:hover {
+/* =========================
+   SMALL NOTE
+   ========================= */
 
-    background: #f2f2f2;
+.note {
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #a18b80;
+}
+
+
+/* =========================
+   FEATURES
+   ========================= */
+
+.features {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    padding: 70px 25px 100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   FEATURE CARDS
+   ========================= */
+
+.features div {
+
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid #f1dfd2;
+
+    border-radius: 28px;
+
+    padding: 28px 24px;
+
+    box-shadow:
+        0 8px 30px rgba(80, 50, 35, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.features div:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(80, 50, 35, 0.12);
+}
+
+
+/* little heart decoration */
+
+.features div::after {
+
+    content: "♡";
+
+    position: absolute;
+
+    right: 18px;
+    top: 14px;
+
+    font-size: 20px;
+
+    color: #e8bda5;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   FEATURE EMOJIS
+   ========================= */
+
+.features span {
+
+    display: block;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   FEATURE TITLES
+   ========================= */
+
+.features b {
+
+    display: block;
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+    color: #4b3931;
+}
+
+
+/* =========================
+   FEATURE TEXT
+   ========================= */
+
+.features p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    color: #88766c;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 35px 20px 45px;
+
+    color: #a28c81;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 850px) {
+
+    .features {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .hero {
+
+        min-height: 70vh;
+
+        padding: 60px 20px;
+    }
+
+    .dog {
+
+        font-size: 70px;
+    }
+
+    h1 {
+
+        font-size: 80px;
+
+        letter-spacing: -3px;
+    }
+
+    .subtitle {
+
+        font-size: 16px;
+    }
+
+    .features {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 40px;
+    }
 }
