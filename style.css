@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -7,55 +9,10 @@ html {
 }
 
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-        "Helvetica Neue", Arial, sans-serif;
-
-    color: #4a3932;
-
-    background:
-        radial-gradient(circle at 10% 20%, rgba(255, 211, 172, 0.35) 0 90px, transparent 91px),
-        radial-gradient(circle at 90% 10%, rgba(255, 225, 195, 0.45) 0 120px, transparent 121px),
-        #fff9f4;
-
-    overflow-x: hidden;
-}
-
-
-/* =========================
-   PAW PRINT DECORATIONS
-   ========================= */
-
-body::before {
-    content: "🐾";
-    position: fixed;
-
-    left: 4%;
-    top: 25%;
-
-    font-size: 42px;
-
-    opacity: 0.12;
-
-    transform: rotate(-20deg);
-
-    pointer-events: none;
-}
-
-body::after {
-    content: "🐾";
-    position: fixed;
-
-    right: 5%;
-    bottom: 20%;
-
-    font-size: 48px;
-
-    opacity: 0.12;
-
-    transform: rotate(18deg);
-
-    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #fffaf5;
+    color: #49362d;
+    line-height: 1.6;
 }
 
 
@@ -64,82 +21,42 @@ body::after {
    ========================= */
 
 .hero {
-    min-height: 78vh;
+    min-height: 720px;
+    padding: 90px 25px 80px;
+    text-align: center;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
-    text-align: center;
-
-    padding: 80px 25px 70px;
-
-    position: relative;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 224, 193, 0.45),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255, 236, 214, 0.7),
+            transparent 30%
+        ),
+        #fffaf5;
 }
-
-
-/* little decorative circles */
-
-.hero::before,
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-.hero::before {
-    width: 180px;
-    height: 180px;
-
-    left: -70px;
-    top: 110px;
-
-    background: #ffe5ce;
-
-    opacity: 0.45;
-}
-
-.hero::after {
-    width: 130px;
-    height: 130px;
-
-    right: -40px;
-    bottom: 80px;
-
-    background: #f9d7bd;
-
-    opacity: 0.35;
-}
-
-
-/* =========================
-   TOFFEE ICON
-   ========================= */
 
 .dog {
-    font-size: 90px;
-
+    font-size: 85px;
     margin-bottom: 15px;
-
     animation: float 3s ease-in-out infinite;
-
-    filter: drop-shadow(0 10px 8px rgba(80, 50, 35, 0.12));
 }
 
 @keyframes float {
-
     0% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-9px);
+        transform: translateY(-10px);
     }
 
     100% {
@@ -147,62 +64,27 @@ body::after {
     }
 }
 
-
-/* =========================
-   SMALL TITLE
-   ========================= */
-
 .eyebrow {
-
-    margin: 0 0 12px;
-
     font-size: 13px;
-
+    font-weight: 700;
     letter-spacing: 3px;
-
-    font-weight: 800;
-
-    color: #a87558;
+    color: #a97855;
+    margin-bottom: 10px;
 }
 
-
-/* =========================
-   MAIN TITLE
-   ========================= */
-
-h1 {
-
-    margin: 0;
-
-    font-size: clamp(72px, 12vw, 130px);
-
-    line-height: 0.9;
-
-    letter-spacing: -5px;
-
-    color: #49372f;
-
-    text-shadow:
-        0 4px 0 #f5dfcf,
-        0 10px 25px rgba(80, 50, 35, 0.08);
+.hero h1 {
+    font-size: clamp(65px, 10vw, 105px);
+    line-height: 1;
+    color: #49362d;
+    margin-bottom: 25px;
+    letter-spacing: -4px;
 }
-
-
-/* =========================
-   DESCRIPTION
-   ========================= */
 
 .subtitle {
-
-    max-width: 610px;
-
-    margin: 30px auto 25px;
-
+    max-width: 600px;
     font-size: 19px;
-
-    line-height: 1.65;
-
-    color: #715f56;
+    color: #806b5e;
+    margin-bottom: 35px;
 }
 
 
@@ -211,76 +93,182 @@ h1 {
    ========================= */
 
 .buttons {
-
-    margin-top: 12px;
-
-    position: relative;
-
-    z-index: 5;
+    display: flex;
+    justify-content: center;
 }
 
 .download {
+    display: inline-block;
 
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    padding: 16px 27px;
-
-    border-radius: 999px;
-
-    background: #4b3931;
-
+    background: #49362d;
     color: white;
 
     text-decoration: none;
 
-    font-size: 16px;
+    padding: 16px 28px;
 
-    font-weight: 750;
+    border-radius: 14px;
+
+    font-size: 16px;
+    font-weight: 700;
 
     box-shadow:
-        0 8px 0 #d8bbaa,
-        0 14px 25px rgba(70, 45, 35, 0.16);
+        0 10px 25px rgba(73, 54, 45, 0.18);
 
     transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .download:hover {
-
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 11px 0 #d8bbaa,
-        0 18px 30px rgba(70, 45, 35, 0.20);
+        0 14px 30px rgba(73, 54, 45, 0.25);
 }
 
-.download:active {
-
-    transform: translateY(3px);
-
-    box-shadow:
-        0 4px 0 #d8bbaa,
-        0 8px 15px rgba(70, 45, 35, 0.15);
+.note {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #a8978d;
 }
 
 
 /* =========================
-   SMALL NOTE
+   SECTIONS
    ========================= */
 
-.note {
+.how-to,
+.features-section {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 100px 25px;
+}
 
-    margin-top: 20px;
+.section-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #b28260;
+    margin-bottom: 10px;
+}
 
-    font-size: 13px;
+.how-to h2,
+.features-section h2,
+.final-download h2 {
+    text-align: center;
+    font-size: clamp(35px, 5vw, 55px);
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
 
-    color: #a18b80;
+.section-subtitle {
+    text-align: center;
+    color: #907d71;
+    margin-bottom: 50px;
+}
+
+
+/* =========================
+   HOW TO USE
+   ========================= */
+
+.instructions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.instruction-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #f0e2d7;
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 30px rgba(100, 70, 50, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.instruction-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 35px rgba(100, 70, 50, 0.1);
+}
+
+.instruction-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0e3;
+
+    border-radius: 17px;
+
+    font-size: 27px;
+}
+
+.instruction-card h3 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.instruction-card p {
+    color: #8d7a6f;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* =========================
+   MAC TRACKPAD TIP
+   ========================= */
+
+.tip {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 700px;
+
+    margin: 35px auto 0;
+
+    padding: 20px 25px;
+
+    background: #fff3e7;
+
+    border: 1px solid #f3dfcd;
+
+    border-radius: 18px;
+}
+
+.tip-icon {
+    font-size: 25px;
+}
+
+.tip strong {
+    font-size: 15px;
+}
+
+.tip p {
+    font-size: 14px;
+    color: #806c60;
+    margin-top: 2px;
 }
 
 
@@ -288,13 +276,20 @@ h1 {
    FEATURES
    ========================= */
 
-.features {
+.features-section {
+    max-width: none;
+    background: #fdf2e8;
+    text-align: center;
+}
 
+.features-section h2 {
+    margin-bottom: 50px;
+}
+
+.features {
     max-width: 1050px;
 
     margin: 0 auto;
-
-    padding: 70px 25px 100px;
 
     display: grid;
 
@@ -303,102 +298,56 @@ h1 {
     gap: 20px;
 }
 
+.feature {
+    background: rgba(255, 255, 255, 0.8);
 
-/* =========================
-   FEATURE CARDS
-   ========================= */
+    border: 1px solid #f1dfd0;
 
-.features div {
+    border-radius: 22px;
 
-    position: relative;
-
-    background: rgba(255, 255, 255, 0.85);
-
-    border: 1px solid #f1dfd2;
-
-    border-radius: 28px;
-
-    padding: 28px 24px;
-
-    box-shadow:
-        0 8px 30px rgba(80, 50, 35, 0.07);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    padding: 30px 20px;
 }
 
-.features div:hover {
-
-    transform: translateY(-7px);
-
-    box-shadow:
-        0 15px 35px rgba(80, 50, 35, 0.12);
-}
-
-
-/* little heart decoration */
-
-.features div::after {
-
-    content: "♡";
-
-    position: absolute;
-
-    right: 18px;
-    top: 14px;
-
-    font-size: 20px;
-
-    color: #e8bda5;
-
-    opacity: 0.7;
-}
-
-
-/* =========================
-   FEATURE EMOJIS
-   ========================= */
-
-.features span {
-
-    display: block;
-
+.feature span {
     font-size: 40px;
-
+    display: block;
     margin-bottom: 15px;
 }
 
-
-/* =========================
-   FEATURE TITLES
-   ========================= */
-
-.features b {
-
-    display: block;
-
-    font-size: 20px;
-
+.feature h3 {
     margin-bottom: 8px;
+}
 
-    color: #4b3931;
+.feature p {
+    color: #8c776b;
+    font-size: 14px;
 }
 
 
 /* =========================
-   FEATURE TEXT
+   FINAL DOWNLOAD
    ========================= */
 
-.features p {
+.final-download {
+    padding: 110px 25px;
 
-    margin: 0;
+    text-align: center;
 
-    font-size: 14px;
+    background: #fffaf5;
+}
 
-    line-height: 1.55;
+.big-dog {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
 
-    color: #88766c;
+.final-download h2 {
+    margin-bottom: 10px;
+}
+
+.final-download p {
+    color: #8b776b;
+    margin-bottom: 30px;
 }
 
 
@@ -407,12 +356,13 @@ h1 {
    ========================= */
 
 footer {
+    padding: 30px;
 
     text-align: center;
 
-    padding: 35px 20px 45px;
+    background: #49362d;
 
-    color: #a28c81;
+    color: white;
 
     font-size: 14px;
 }
@@ -422,45 +372,34 @@ footer {
    MOBILE
    ========================= */
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
+
+    .hero {
+        min-height: 650px;
+        padding-top: 70px;
+    }
+
+    .instructions {
+        grid-template-columns: 1fr;
+    }
 
     .features {
-
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 
-@media (max-width: 520px) {
+@media (max-width: 450px) {
 
-    .hero {
-
-        min-height: 70vh;
-
-        padding: 60px 20px;
+    .features {
+        grid-template-columns: 1fr;
     }
 
-    .dog {
-
-        font-size: 70px;
-    }
-
-    h1 {
-
-        font-size: 80px;
-
-        letter-spacing: -3px;
+    .hero h1 {
+        letter-spacing: -2px;
     }
 
     .subtitle {
-
-        font-size: 16px;
-    }
-
-    .features {
-
-        grid-template-columns: 1fr;
-
-        padding-top: 40px;
+        font-size: 17px;
     }
 }
